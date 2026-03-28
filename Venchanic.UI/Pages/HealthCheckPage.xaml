@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Venchanic.UI.Pages.HealthCheckPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid HorizontalAlignment="Stretch">
+        <Grid.Transitions>
+            <TransitionCollection>
+                <EntranceThemeTransition />
+                <RepositionThemeTransition />
+            </TransitionCollection>
+        </Grid.Transitions>
+        <ScrollViewer
+            HorizontalAlignment="Stretch"
+            HorizontalScrollBarVisibility="Disabled"
+            HorizontalScrollMode="Disabled"
+            VerticalScrollBarVisibility="Auto">
+            <Grid
+                HorizontalAlignment="Stretch"
+                MaxWidth="1200"
+                RowSpacing="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" RowSpacing="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock
+                        Grid.Row="0"
+                        FontSize="32"
+                        FontWeight="SemiBold"
+                        Text="Health Check" />
+                    <TextBlock
+                        Grid.Row="1"
+                        Opacity="0.72"
+                        Text="Inspect your Discord install, version, branch, resources and Vencord markers."
+                        TextWrapping="WrapWholeWords" />
+                </Grid>
+
+                <Grid
+                    Grid.Row="1"
+                    ColumnSpacing="20"
+                    RowSpacing="20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.15*" />
+                        <ColumnDefinition Width="0.85*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Padding="20"
+                        Background="#0FFFFFFF"
+                        BorderBrush="#22000000"
+                        BorderThickness="1"
+                        CornerRadius="12">
+                        <Grid RowSpacing="14">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Border
+                                x:Name="StatusBadgeBorder"
+                                Grid.Row="0"
+                                HorizontalAlignment="Left"
+                                Padding="10,5"
+                                Background="#12000000"
+                                BorderBrush="#22000000"
+                                BorderThickness="1"
+                                CornerRadius="8">
+                                <TextBlock
+                                    x:Name="StatusBadgeTextBlock"
+                                    FontSize="12"
+                                    FontWeight="SemiBold"
+                                    Text="{Binding StatusBadgeText, Mode=OneWay}" />
+                            </Border>
+
+                            <Grid Grid.Row="1" RowSpacing="6">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <StackPanel
+                                    Orientation="Horizontal"
+                                    Spacing="10">
+                                    <FontIcon FontSize="16" Glyph="&#xE915;" />
+                                    <TextBlock
+                                        FontSize="24"
+                                        FontWeight="SemiBold"
+                                        Text="{Binding StatusTitle, Mode=OneWay}" />
+                                </StackPanel>
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Opacity="0.72"
+                                    Text="{Binding StatusSubtitle, Mode=OneWay}"
+                                    TextWrapping="WrapWholeWords" />
+                            </Grid>
+
+                            <Border
+                                Grid.Row="2"
+                                Padding="12"
+                                Background="#0AFFFFFF"
+                                BorderBrush="#18000000"
+                                BorderThickness="1"
+                                CornerRadius="10">
+                                <Grid RowSpacing="4">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock
+                                        FontSize="12"
+                                        FontWeight="SemiBold"
+                                        Opacity="0.68"
+                                        Text="Recommended action" />
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        Text="{Binding RecommendedActionText, Mode=OneWay}"
+                                        TextWrapping="WrapWholeWords" />
+                                </Grid>
+                            </Border>
+
+                            <StackPanel
+                                Grid.Row="3"
+                                Orientation="Horizontal"
+                                Spacing="12">
+                                <Button
+                                    Command="{Binding CheckCommand}"
+                                    Content="Run health check" />
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Padding="20"
+                        Background="#0FFFFFFF"
+                        BorderBrush="#22000000"
+                        BorderThickness="1"
+                        CornerRadius="12">
+                        <Grid RowSpacing="14">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <StackPanel
+                                Grid.Row="0"
+                                Orientation="Horizontal"
+                                Spacing="10">
+                                <FontIcon FontSize="16" Glyph="&#xE9CE;" />
+                                <TextBlock
+                                    FontSize="20"
+                                    FontWeight="SemiBold"
+                                    Text="Detection Details" />
+                            </StackPanel>
+
+                            <Grid Grid.Row="1" RowSpacing="6">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <TextBlock FontWeight="SemiBold" Text="Detected state" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Opacity="0.72"
+                                    Text="{Binding StatusBadgeText, Mode=OneWay}" />
+                            </Grid>
+
+                            <Grid Grid.Row="2" RowSpacing="6">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <TextBlock FontWeight="SemiBold" Text="app.asar" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Opacity="0.72"
+                                    Text="{Binding AppAsarStatusText, Mode=OneWay}" />
+                            </Grid>
+
+                            <Grid Grid.Row="3" RowSpacing="6">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <TextBlock FontWeight="SemiBold" Text="Vencord marker" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Opacity="0.72"
+                                    Text="{Binding MarkerStatusText, Mode=OneWay}" />
+                            </Grid>
+
+                            <Grid Grid.Row="4" RowSpacing="6">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <TextBlock FontWeight="SemiBold" Text="Last check" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Opacity="0.72"
+                                    Text="{Binding LastCheckTimeText, Mode=OneWay}" />
+                            </Grid>
+                        </Grid>
+                    </Border>
+
+                    <Border
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Padding="20"
+                        Background="#0FFFFFFF"
+                        BorderBrush="#22000000"
+                        BorderThickness="1"
+                        CornerRadius="12">
+                        <Grid RowSpacing="16">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <StackPanel
+                                Grid.Row="0"
+                                Orientation="Horizontal"
+                                Spacing="10">
+                                <FontIcon FontSize="16" Glyph="&#xE8B7;" />
+                                <TextBlock
+                                    FontSize="20"
+                                    FontWeight="SemiBold"
+                                    Text="Discord Install" />
+                            </StackPanel>
+
+                            <Grid
+                                Grid.Row="1"
+                                ColumnSpacing="20"
+                                RowSpacing="14">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="0" Grid.Column="0" RowSpacing="6">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock FontWeight="SemiBold" Text="Branch" />
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        Opacity="0.72"
+                                        Text="{Binding DiscordBranch, Mode=OneWay}" />
+                                </Grid>
+
+                                <Grid Grid.Row="0" Grid.Column="1" RowSpacing="6">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock FontWeight="SemiBold" Text="Version" />
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        Opacity="0.72"
+                                        Text="{Binding DiscordVersion, Mode=OneWay}" />
+                                </Grid>
+
+                                <Grid Grid.Row="1" Grid.Column="0" RowSpacing="6">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock FontWeight="SemiBold" Text="Install path" />
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        Opacity="0.72"
+                                        Text="{Binding DiscordPath, Mode=OneWay}"
+                                        TextWrapping="WrapWholeWords" />
+                                </Grid>
+
+                                <Grid Grid.Row="1" Grid.Column="1" RowSpacing="6">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock FontWeight="SemiBold" Text="Current app folder" />
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        Opacity="0.72"
+                                        Text="{Binding AppFolderPath, Mode=OneWay}"
+                                        TextWrapping="WrapWholeWords" />
+                                </Grid>
+
+                                <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" RowSpacing="6">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock FontWeight="SemiBold" Text="Resources path" />
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        Opacity="0.72"
+                                        Text="{Binding ResourcesPath, Mode=OneWay}"
+                                        TextWrapping="WrapWholeWords" />
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Border>
+
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Padding="20"
+                        Background="#0FFFFFFF"
+                        BorderBrush="#22000000"
+                        BorderThickness="1"
+                        CornerRadius="12">
+                        <Grid RowSpacing="14">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <StackPanel
+                                Grid.Row="0"
+                                Orientation="Horizontal"
+                                Spacing="10">
+                                <FontIcon FontSize="16" Glyph="&#xE9D9;" />
+                                <TextBlock
+                                    FontSize="20"
+                                    FontWeight="SemiBold"
+                                    Text="Diagnostics Actions" />
+                            </StackPanel>
+
+                            <TextBlock
+                                Grid.Row="1"
+                                Opacity="0.72"
+                                Text="{Binding LastOperationSummaryText, Mode=OneWay}"
+                                TextWrapping="WrapWholeWords" />
+
+                            <StackPanel
+                                Grid.Row="2"
+                                Orientation="Horizontal"
+                                Spacing="12">
+                                <Button
+                                    Click="CopyDiagnosticsButton_Click"
+                                    Content="Copy diagnostics" />
+                                <Button
+                                    Click="ExportDiagnosticsButton_Click"
+                                    Content="Export diagnostics" />
+                                <Button
+                                    Click="OpenReportsFolderButton_Click"
+                                    Content="Open reports folder" />
+                                <Button
+                                    Click="OpenLogsFolderButton_Click"
+                                    Content="Open logs folder" />
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </Grid>
+
+                <Border
+                    x:Name="AdvancedDiagnosticsCard"
+                    Grid.Row="2"
+                    Padding="20"
+                    Background="#0FFFFFFF"
+                    BorderBrush="#22000000"
+                    BorderThickness="1"
+                    CornerRadius="12"
+                    Visibility="Collapsed">
+                    <Grid RowSpacing="14">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <StackPanel
+                            Grid.Row="0"
+                            Orientation="Horizontal"
+                            Spacing="10">
+                            <FontIcon FontSize="16" Glyph="&#xE9D9;" />
+                            <TextBlock
+                                FontSize="20"
+                                FontWeight="SemiBold"
+                                Text="Advanced Diagnostics" />
+                        </StackPanel>
+
+                        <Grid
+                            Grid.Row="1"
+                            ColumnSpacing="20"
+                            RowSpacing="14">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0" Grid.Column="0" RowSpacing="6">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <TextBlock FontWeight="SemiBold" Text="Runtime Root" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    FontSize="12"
+                                    Opacity="0.75"
+                                    Text="{Binding RuntimeRootPath, Mode=OneWay}"
+                                    TextWrapping="WrapWholeWords" />
+                            </Grid>
+
+                            <Grid Grid.Row="0" Grid.Column="1" RowSpacing="6">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <TextBlock FontWeight="SemiBold" Text="State File" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    FontSize="12"
+                                    Opacity="0.75"
+                                    Text="{Binding StateFilePath, Mode=OneWay}"
+                                    TextWrapping="WrapWholeWords" />
+                            </Grid>
+
+                            <Grid Grid.Row="1" Grid.Column="0" RowSpacing="6">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <TextBlock FontWeight="SemiBold" Text="Installer CLI" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    FontSize="12"
+                                    Opacity="0.75"
+                                    Text="{Binding InstallerCliPath, Mode=OneWay}"
+                                    TextWrapping="WrapWholeWords" />
+                            </Grid>
+
+                            <Grid Grid.Row="1" Grid.Column="1" RowSpacing="6">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <TextBlock FontWeight="SemiBold" Text="Last repair" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    FontSize="12"
+                                    Opacity="0.75"
+                                    Text="{Binding LastRepairTimeText, Mode=OneWay}" />
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>

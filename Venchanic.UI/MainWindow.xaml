@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="Venchanic.UI.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Venchanic"
+    mc:Ignorable="d">
+
+    <Window.SystemBackdrop>
+        <MicaBackdrop />
+    </Window.SystemBackdrop>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Border
+            Grid.Row="0"
+            Background="#10000000"
+            BorderBrush="#18000000"
+            BorderThickness="0,0,0,1">
+            <Grid
+                x:Name="TitleBarDragRegion"
+                Padding="18,0,148,0">
+                <TextBlock
+                    VerticalAlignment="Center"
+                    FontSize="13"
+                    FontWeight="SemiBold"
+                    Opacity="0.86"
+                    Text="Venchanic" />
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="296" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Border
+                Grid.Column="0"
+                Background="#14000000"
+                BorderBrush="#22000000"
+                BorderThickness="0,0,1,0">
+                <StackPanel Padding="24,26,24,22" Spacing="10">
+                    <Border
+                        Padding="12"
+                        Background="#0F000000"
+                        BorderBrush="#18000000"
+                        BorderThickness="1"
+                        CornerRadius="14">
+                        <Grid
+                            HorizontalAlignment="Stretch"
+                            ColumnSpacing="12">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Border
+                                Grid.Column="0"
+                                Width="44"
+                                Height="44"
+                                VerticalAlignment="Center"
+                                Background="#16007ACC"
+                                BorderBrush="#2A007ACC"
+                                BorderThickness="1"
+                                CornerRadius="12">
+                                <Image
+                                    Width="34"
+                                    Height="34"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Source="ms-appx:///Assets/BrandMark.png"
+                                    Stretch="Uniform" />
+                            </Border>
+                            <Grid
+                                Grid.Column="1"
+                                VerticalAlignment="Center"
+                                RowSpacing="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <TextBlock
+                                    Grid.Row="0"
+                                    TextTrimming="CharacterEllipsis"
+                                    FontSize="27"
+                                    FontWeight="SemiBold"
+                                    Text="Venchanic" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Opacity="0.58"
+                                    FontSize="12"
+                                    Text="Vencord repair utility" />
+                            </Grid>
+                        </Grid>
+                    </Border>
+
+                    <StackPanel Margin="0,14,0,0" Spacing="8">
+                        <Button
+                            x:Name="DashboardTabButton"
+                            Click="DashboardTabButton_Click"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Left"
+                            Padding="14,11"
+                            MinHeight="44"
+                            Background="#26007ACC"
+                            BorderBrush="#32007ACC"
+                            BorderThickness="1"
+                            CornerRadius="10"
+                            FontSize="14"
+                            FontWeight="SemiBold">
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <FontIcon FontSize="15" Glyph="&#xE80F;" />
+                                <TextBlock Text="Dashboard" />
+                            </StackPanel>
+                        </Button>
+
+                        <Button
+                            x:Name="HealthCheckTabButton"
+                            Click="HealthCheckTabButton_Click"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Left"
+                            Padding="14,11"
+                            MinHeight="44"
+                            Background="#08000000"
+                            BorderBrush="#16000000"
+                            BorderThickness="1"
+                            CornerRadius="10"
+                            FontSize="14">
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <FontIcon FontSize="15" Glyph="&#xE915;" />
+                                <TextBlock Text="Health Check" />
+                            </StackPanel>
+                        </Button>
+
+                        <Button
+                            x:Name="RepairTabButton"
+                            Click="RepairTabButton_Click"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Left"
+                            Padding="14,11"
+                            MinHeight="44"
+                            Background="#08000000"
+                            BorderBrush="#16000000"
+                            BorderThickness="1"
+                            CornerRadius="10"
+                            FontSize="14">
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <FontIcon FontSize="15" Glyph="&#xE90F;" />
+                                <TextBlock Text="Repair" />
+                            </StackPanel>
+                        </Button>
+
+                        <Button
+                            x:Name="SettingsTabButton"
+                            Click="SettingsTabButton_Click"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Left"
+                            Padding="14,11"
+                            MinHeight="44"
+                            Background="#08000000"
+                            BorderBrush="#16000000"
+                            BorderThickness="1"
+                            CornerRadius="10"
+                            FontSize="14">
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <FontIcon FontSize="15" Glyph="&#xE713;" />
+                                <TextBlock Text="Settings" />
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Grid Grid.Column="1" Padding="48,32,48,32">
+                <ContentControl
+                    x:Name="DashboardHost"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    VerticalContentAlignment="Stretch">
+                    <ContentControl.Transitions>
+                        <TransitionCollection>
+                            <EntranceThemeTransition />
+                            <ContentThemeTransition />
+                        </TransitionCollection>
+                    </ContentControl.Transitions>
+                </ContentControl>
+            </Grid>
+        </Grid>
+
+        <Border
+            Grid.Row="2"
+            Padding="16,10"
+            Background="#14000000"
+            BorderBrush="#22000000"
+            BorderThickness="0,1,0,0">
+            <Grid ColumnSpacing="16">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock
+                    VerticalAlignment="Center"
+                    Opacity="0.72"
+                    Text="{x:Bind ViewModel.StatusBarText, Mode=OneWay}" />
+
+                <ProgressBar
+                    x:Name="StatusProgressBar"
+                    Grid.Column="1"
+                    Width="120"
+                    Height="4"
+                    VerticalAlignment="Center"
+                    IsIndeterminate="True"
+                    ShowPaused="False"
+                    Visibility="Collapsed" />
+
+                <TextBlock
+                    Grid.Column="2"
+                    VerticalAlignment="Center"
+                    Opacity="0.58"
+                    Text="{x:Bind ViewModel.FooterSummaryText, Mode=OneWay}" />
+
+                <TextBlock
+                    Grid.Column="3"
+                    VerticalAlignment="Center"
+                    Opacity="0.72"
+                    Text="{x:Bind ViewModel.AppVersionText, Mode=OneWay}" />
+            </Grid>
+        </Border>
+
+        <Border
+            x:Name="ToastBorder"
+            Grid.RowSpan="3"
+            Width="360"
+            Padding="16"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Margin="0,20,20,0"
+            Background="#202226"
+            BorderBrush="#353840"
+            BorderThickness="1"
+            CornerRadius="14"
+            Visibility="Collapsed">
+            <Grid ColumnSpacing="12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Spacing="4">
+                    <TextBlock
+                        x:Name="ToastTitleText"
+                        FontSize="15"
+                        FontWeight="SemiBold"
+                        Foreground="#F4F6F8" />
+                    <TextBlock
+                        x:Name="ToastMessageText"
+                        Opacity="0.82"
+                        Foreground="#D7DBE0"
+                        TextWrapping="WrapWholeWords" />
+                </StackPanel>
+                <Button
+                    Grid.Column="1"
+                    Click="ToastCloseButton_Click"
+                    Content="Dismiss" />
+            </Grid>
+        </Border>
+
+        <Grid
+            x:Name="RepairOptionsOverlay"
+            Grid.RowSpan="3"
+            Background="#76000000"
+            Visibility="Collapsed">
+            <Border
+                Width="540"
+                MaxWidth="580"
+                Padding="26"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="#202226"
+                BorderBrush="#353840"
+                BorderThickness="1"
+                CornerRadius="16">
+                <Grid RowSpacing="16">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock
+                        x:Name="RepairDialogTitleText"
+                        Grid.Row="0"
+                        FontSize="22"
+                        FontWeight="SemiBold"
+                        Foreground="#F4F6F8"
+                        TextWrapping="WrapWholeWords" />
+
+                    <TextBlock
+                        x:Name="RepairDialogMessageText"
+                        Grid.Row="1"
+                        Foreground="#D7DBE0"
+                        Opacity="0.92"
+                        TextWrapping="WrapWholeWords" />
+
+                    <Grid
+                        Grid.Row="2"
+                        RowSpacing="14">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <CheckBox
+                            Grid.Row="0"
+                            Content="Clear Discord cache before repair"
+                            IsChecked="{x:Bind ViewModel.RepairOptionsClearCache, Mode=TwoWay}" />
+
+                        <CheckBox
+                            Grid.Row="1"
+                            Content="Try to close Discord automatically before repair"
+                            IsChecked="{x:Bind ViewModel.RepairOptionsTryCloseDiscord, Mode=TwoWay}" />
+
+                        <StackPanel
+                            Grid.Row="2"
+                            Spacing="8">
+                            <TextBlock
+                                FontWeight="SemiBold"
+                                Foreground="#F4F6F8"
+                                Text="Repair mode" />
+                            <RadioButton
+                                Content="Patch"
+                                GroupName="RepairMode"
+                                IsChecked="{x:Bind ViewModel.IsPatchModeSelected, Mode=TwoWay}" />
+                            <RadioButton
+                                Content="Reinstall (deep)"
+                                GroupName="RepairMode"
+                                IsChecked="{x:Bind ViewModel.IsDeepModeSelected, Mode=TwoWay}" />
+                        </StackPanel>
+                    </Grid>
+
+                    <StackPanel
+                        Grid.Row="3"
+                        HorizontalAlignment="Right"
+                        Orientation="Horizontal"
+                        Spacing="10">
+                        <Button
+                            Click="RepairOptionsCancelButton_Click"
+                            MinWidth="96"
+                            Content="Cancel" />
+                        <Button
+                            Click="RepairOptionsConfirmButton_Click"
+                            Background="#245BDA"
+                            BorderBrush="#2D67E3"
+                            MinWidth="120"
+                            Content="Start repair"
+                            Foreground="White" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Grid
+            x:Name="InstallerOverlay"
+            Grid.RowSpan="3"
+            Background="#76000000"
+            Visibility="Collapsed">
+            <Grid.Transitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition />
+                </TransitionCollection>
+            </Grid.Transitions>
+            <Border
+                Width="520"
+                MaxWidth="560"
+                Padding="26"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="#202226"
+                BorderBrush="#353840"
+                BorderThickness="1"
+                CornerRadius="16">
+                <Grid RowSpacing="16">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock
+                        x:Name="InstallerDialogTitleText"
+                        Grid.Row="0"
+                        FontSize="22"
+                        FontWeight="SemiBold"
+                        Foreground="#F4F6F8"
+                        TextWrapping="WrapWholeWords" />
+
+                    <TextBlock
+                        x:Name="InstallerDialogMessageText"
+                        Grid.Row="1"
+                        Foreground="#D7DBE0"
+                        Opacity="0.92"
+                        TextWrapping="WrapWholeWords" />
+
+                    <StackPanel
+                        Grid.Row="2"
+                        Spacing="8">
+                        <ProgressBar
+                            x:Name="InstallerProgressBar"
+                            Height="4"
+                            IsIndeterminate="True"
+                            Visibility="Collapsed" />
+                        <TextBlock
+                            x:Name="InstallerDialogStatusText"
+                            FontSize="12"
+                            Foreground="#AEB6C2"
+                            Visibility="Collapsed" />
+                    </StackPanel>
+
+                    <StackPanel
+                        x:Name="InstallerDialogButtons"
+                        Grid.Row="3"
+                        HorizontalAlignment="Right"
+                        Orientation="Horizontal"
+                        Spacing="10">
+                        <Button
+                            x:Name="InstallerNoButton"
+                            Click="InstallerNoButton_Click"
+                            MinWidth="96"
+                            Content="No" />
+                        <Button
+                            x:Name="InstallerYesButton"
+                            Click="InstallerYesButton_Click"
+                            Background="#245BDA"
+                            BorderBrush="#2D67E3"
+                            MinWidth="120"
+                            Content="Yes"
+                            Foreground="White" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
