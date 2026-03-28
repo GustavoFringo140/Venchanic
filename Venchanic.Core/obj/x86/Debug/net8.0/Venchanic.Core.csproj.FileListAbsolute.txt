@@ -1,0 +1,11 @@
+C:\Users\zeo\Venchanic\Venchanic.Core\bin\x86\Debug\net8.0\Venchanic.Core.deps.json
+C:\Users\zeo\Venchanic\Venchanic.Core\bin\x86\Debug\net8.0\Venchanic.Core.dll
+C:\Users\zeo\Venchanic\Venchanic.Core\bin\x86\Debug\net8.0\Venchanic.Core.pdb
+C:\Users\zeo\Venchanic\Venchanic.Core\obj\x86\Debug\net8.0\Venchanic.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zeo\Venchanic\Venchanic.Core\obj\x86\Debug\net8.0\Venchanic.Core.AssemblyInfoInputs.cache
+C:\Users\zeo\Venchanic\Venchanic.Core\obj\x86\Debug\net8.0\Venchanic.Core.AssemblyInfo.cs
+C:\Users\zeo\Venchanic\Venchanic.Core\obj\x86\Debug\net8.0\Venchanic.Core.csproj.CoreCompileInputs.cache
+C:\Users\zeo\Venchanic\Venchanic.Core\obj\x86\Debug\net8.0\Venchanic.Core.dll
+C:\Users\zeo\Venchanic\Venchanic.Core\obj\x86\Debug\net8.0\refint\Venchanic.Core.dll
+C:\Users\zeo\Venchanic\Venchanic.Core\obj\x86\Debug\net8.0\Venchanic.Core.pdb
+C:\Users\zeo\Venchanic\Venchanic.Core\obj\x86\Debug\net8.0\ref\Venchanic.Core.dll
