@@ -1,0 +1,10 @@
+﻿Venchanic installer EXE
+
+Installer:
+C:\Users\zeo\Venchanic\artifacts\installer\x64\Release\Venchanic-Setup-x64.exe
+
+Underlying package:
+C:\Users\zeo\Venchanic\artifacts\packages\x64\Release\Venchanic.UI_1.0.0.0_x64_Test\Venchanic.UI_1.0.0.0_x64.msix
+
+Certificate:
+C:\Users\zeo\Venchanic\artifacts\certificates\Venchanic.Dev.cer
