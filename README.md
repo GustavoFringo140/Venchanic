@@ -95,18 +95,54 @@ Requirements:
 - Windows App SDK / WinUI 3 development environment
 - Visual Studio 2022 or compatible MSBuild tooling
 
-Build:
+Recommended dev target:
+
+- `x64` for normal development and release validation
+- `x86` only when you explicitly need to test it
+
+Build only:
 
 ```powershell
-dotnet build .\Venchanic.UI\Venchanic.UI.csproj -p:Platform=x86
+dotnet build .\Venchanic.UI\Venchanic.UI.csproj -p:Platform=x64 -c Debug
 ```
 
-Run packaged app after registration:
+Reinstall packaged app for development:
 
 ```powershell
-$appId = 'shell:AppsFolder\Venchanic.UI_xmkfxnxv2eh86!App'
-Start-Process explorer.exe $appId
+.\scripts\reinstall-dev-package.ps1 -Platform x64 -Configuration Debug
 ```
+
+Switch architecture safely:
+
+```powershell
+.\scripts\reinstall-dev-package.ps1 -Platform x86 -Configuration Debug
+```
+
+### Release package
+
+Build installable packaged release:
+
+```powershell
+.\scripts\build-release-package.ps1 -Platform x64 -Configuration Release
+```
+
+Install packaged release locally:
+
+```powershell
+.\scripts\install-release-package.ps1 -Platform x64 -Configuration Release
+```
+
+Build single-file installer `.exe`:
+
+```powershell
+.\scripts\build-release-installer.ps1 -Platform x64 -Configuration Release
+```
+
+Release artifact to upload:
+
+- `Venchanic-Setup-x64.exe` from `artifacts\installer\x64\Release`
+- optionally the raw `.msix` from `artifacts\packages\x64\Release`
+- for local sideload testing/debug: `Venchanic.Dev.cer` from `artifacts\certificates`
 
 ## Installer CLI
 
