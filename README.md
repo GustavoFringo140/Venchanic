@@ -17,7 +17,7 @@ It is not a mod manager, not a launcher, and not a bloated dashboard app. It is 
 - 📦 Auto-downloads the installer when it is missing
 - 🧠 Stores runtime state, last check and last repair results
 - 🧰 Exports diagnostics for GitHub issues
-- 📝 Writes logs into `%LOCALAPPDATA%\\Venchanic`
+- 📝 Writes logs into `%LOCALAPPDATA%\Venchanic`
 - 🔁 Supports guided repair and retry after closing Discord
 - 🚦 Checks for newer Venchanic releases
 
@@ -167,4 +167,4 @@ Current focus:
 
 - Venchanic is an unofficial utility.
 - It does not replace the official Vencord installer.
-- Use it only if you understand what patching Discord means on your system.
+- Use it only if you understand what patching Vencord means on your system.
